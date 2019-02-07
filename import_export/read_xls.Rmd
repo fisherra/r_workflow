@@ -1,0 +1,7 @@
+---
+title: "Reading Excel Files"
+output: html_document
+---
+
+read_xls()      # Importing excel files (from readxl)
+

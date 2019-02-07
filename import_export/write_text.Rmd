@@ -1,0 +1,7 @@
+---
+title: "Writing Text Files"
+output: html_document
+---
+
+write_file()    # Explicitly export text files
+

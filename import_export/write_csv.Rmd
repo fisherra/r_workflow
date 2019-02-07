@@ -1,0 +1,6 @@
+---
+title: "Writing Deliminated Files"
+output: html_document
+---
+
+write_delim()   # Explicitly export .csv and .tsv files

@@ -1,0 +1,8 @@
+---
+title: "Parsing Numbers"
+output: html_document
+---
+
+
+parse_*()       # Family of parsing functions
+

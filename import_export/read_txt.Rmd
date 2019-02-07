@@ -1,0 +1,6 @@
+---
+title: "Reading Text Files"
+output: html_document
+---
+
+read_file()     # Importing text files

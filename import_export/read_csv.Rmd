@@ -1,0 +1,14 @@
+---
+title: "Reading Deliminated Files"
+output: html_document
+---
+
+read_delim()    # Importing .csv and .tsv files
+read_file()     # Importing text files
+read_xls()      # Importing excel files (from readxl)
+parse_*()       # Family of parsing functions
+write_delim()   # Explicitly export .csv and .tsv files
+write_file()    # Explicitly export text files
+ggsave()        # Explicitly save plots (from ggplot2)
+pdf()
+jpeg()
