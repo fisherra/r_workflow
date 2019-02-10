@@ -3,4 +3,46 @@ title: "Reading Text Files"
 output: html_document
 ---
 
-read_file()     # Importing text files
+<br>
+
+```{r, message = F}
+library('tidyverse')
+library('tidytext')
+```
+
+<br> 
+
+why use tidytext and tidyverse? because x,y,z. 
+
+<br> 
+
+## Loading Text Files
+
+very simple. 
+
+### works for any file
+```{r, eval = F}
+text_file <- read_file('my_text.txt')
+```
+
+<br> 
+
+### last resort
+```{r, eval = F}
+my_annoying_file <- read_file_raw('my_file.anything')
+```
+
+<br> 
+
+### Tokkenizing Text Files
+
+explain what's going on. 
+```{r, eval = F}
+token_text <- original_text %>% 
+  unnest_tokens(work, value) %>%
+  anti_join(stop_words)
+```
+
+<br> 
+
+More on text analysis here (link). 

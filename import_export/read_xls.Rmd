@@ -3,5 +3,61 @@ title: "Reading Excel Files"
 output: html_document
 ---
 
-read_xls()      # Importing excel files (from readxl)
+This can also be done through the RStudio GUI under 'Import Dataset - From Excel'. 
+
+
+<br> 
+
+```{r}
+library('readxl')
+```
+
+<br> 
+
+why use readxl? because x,y,z. 
+
+<br> 
+
+## Loading Excel Files
+
+<br> 
+
+### reading an excel file
+```{r, eval = F}
+my_excel_data <- read_excel('excel.xlsx')
+```
+
+<br> 
+
+### these all do the same thing
+```{r, eval = F}
+read_excel()
+read_xls()
+read_xlsx()
+```
+
+<br> 
+
+### reading files outside of your directory
+```{r, eval = F}
+my_data <- read_xls('~/local/path/to/my/file/mydata.xls')
+my_data <- read_xls('https://github.com/tidyverse/readr/raw/master/inst/extdata/mtcars.xls')
+```
+
+<br> 
+
+### read_xls arguements
+```{r, eval = F}
+read_xls('path/to/my_data.xls',       # explain
+         sheet = x,                   # what
+         range = y,                   # all
+         col_names = c(),             # of 
+         col_types = c(),             # this 
+         na = "",                     # does
+         trim_ws = T,                 # so 
+         skip = 0,                    # its
+         n_max = Inf,                 # easy 
+         guess_max = min(1000, n_max) # to use
+         )
+```
 

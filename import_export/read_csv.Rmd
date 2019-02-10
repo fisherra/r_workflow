@@ -3,12 +3,76 @@ title: "Reading Deliminated Files"
 output: html_document
 ---
 
-read_delim()    # Importing .csv and .tsv files
-read_file()     # Importing text files
-read_xls()      # Importing excel files (from readxl)
-parse_*()       # Family of parsing functions
-write_delim()   # Explicitly export .csv and .tsv files
-write_file()    # Explicitly export text files
-ggsave()        # Explicitly save plots (from ggplot2)
-pdf()
-jpeg()
+<br> 
+
+```{r, message = F}
+library('readr')
+```
+
+<br> 
+
+Why use readr? because x,y,z. 
+
+<br> 
+
+## Reading Files
+
+loads as a tibble. 
+
+<br> 
+
+### reading a .csv file
+```{r, eval = F}
+my_data <- read_csv('mydata.csv')
+```
+
+<br> 
+
+### reading a .tsv file
+```{r, eval = F}
+my_data <- read_tsv('mydata.tsv')
+```
+
+<br> 
+
+### reading zipped files
+```{r, eval = F}
+my_data <- read_csv('mydata.csv.zip')
+```
+
+<br> 
+
+### reading files outside of your directory
+```{r, eval = F}
+my_data <- read_csv('~/local/path/to/my/file/mydata.csv')
+my_data <- read_csv('https://github.com/tidyverse/readr/raw/master/inst/extdata/mtcars.csv')
+```
+
+<br> 
+
+### read_delim arguements
+
+These work for both `read_csv()` and `read_tsv()`.
+```{r, eval = F}
+read_csv(
+  "mydata.csv",               # file path and name always comes first
+  delim=",",                  # single character field separator
+  quote = "\"",               # single character to quote strings
+  comment = "#",              # single character to signal comments
+  col_names = c('a','b'),     # custom name columns on import
+  na = ".",                   # string to signify missing values
+  skip = 0,                   # number of lines to skip before reading data
+  progress = show_progress()  # display a progress bar
+  )
+```
+
+<br> 
+
+### reading foreign files
+```{r, eval = F}
+foreign_data <- read_csv2('data_with_semicolan_delim.csv')
+```
+
+<br> 
+
+

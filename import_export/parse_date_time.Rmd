@@ -1,6 +1,0 @@
----
-title: "Parsing Date-time"
-output: html_document
----
-
-parse()

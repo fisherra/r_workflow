@@ -2,6 +2,37 @@
 title: "Writing Text Files"
 output: html_document
 ---
+<br> 
 
-write_file()    # Explicitly export text files
+```{r}
+library('readr')
+```
 
+<br>
+
+## Writing Files
+
+<br>
+
+Why save something as a .txt file? I'm not sure. but write_file most generic, fail safe way to save something. if you cant get your .csv to work in a pinch, use write_file. 
+<br>
+
+Generating example text: 
+
+<br> 
+```{r}
+text_file <- 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent accumsan pretium ipsum, at venenatis nunc. Praesent sed est a tortor sollicitudin faucibus sit amet sed nisl. Quisque posuere vehicula est id aliquet. In gravida lacus a accumsan ultrices. Aliquam pharetra sit amet nibh et efficitur. Donec sapien lorem, volutpat eget hendrerit quis, lacinia quis est. Curabitur dignissim volutpat ornare. Donec a aliquet dolor. Sed laoreet rhoncus quam quis accumsan.'
+```
+
+<br>
+
+
+### using write_file
+```{r}
+write_file(text_file,           # declare object to save
+           'filename.text.gz',  # zip good for large text file
+           append = T           # possible you want to append a log
+          )
+```
+
+<br> 

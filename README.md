@@ -22,10 +22,6 @@
 
 
 
-### Visualizations
-- Base R 
-- ggplot2
-- Highcharacter
-- Rshiny
-- Tableau
-
+### Functions
+- purrr
+- general programming

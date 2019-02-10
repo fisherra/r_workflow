@@ -1,0 +1,101 @@
+---
+title: "Saving Visualizations"
+output: html_document
+---
+
+<br>
+
+```{r, message = F}
+library('tidyverse')
+```
+
+<br>
+
+These are base R, except the ggsave, which is ggplot2. To show, we'll create a sample plot. Why not just use the GUI? you can easily hit the export button in the RStudio GUI, but, for reproducibility, you may want to use the code. 
+
+<br> 
+
+```{r}
+set.seed(1)
+x <- 1:100
+y <- 1 + 2*x + rnorm(100,0,2)
+```
+
+<br>
+
+### Saving Images in R 
+
+<br> 
+
+
+### using ggsave
+
+Why use ggsave? easier syntax, more straightfoward a process. no need to turn device on and off. 
+
+```{r, eval = F}
+ggplot() + 
+  geom_point(aes(x,y))
+
+ggsave('filename.png')
+```
+
+<br> 
+
+Best thing about ggsave is that it has sensible defaults. If you want to specify the arguements, here are the useful ones. 
+
+<br> 
+
+```{r, eval = F}
+ggsave('filename.png',       # name of file
+       plot = last_plot(),   # this is the default
+       device = png(),       # png, jpeg, pdf, etc
+       height = 6.67,        # specify height
+       width = 6.67,         # specify width
+       units = 'in',         # specify units, uses default
+       scale = 1             # specify a scaling vector 
+       )
+```
+
+<br> 
+
+### using pdf
+
+```{r, eval = F}
+# first declare the pdf function
+pdf('filename.pdf', # saved files name
+    7,              # width of image in inches
+    5               # height of image in inches
+    )
+
+# next plot the visualization
+ggplot() + 
+  geom_point(aes(x,y))
+
+# lastly, turn off the pdf 'device'
+dev.off()
+```
+
+<br>
+
+The .pdf has been saved to my working directory. I could have specified a path in the filename. 
+
+<br> 
+
+### using jpg, png, or bmp
+
+```{r, eval = F}
+# first specify the parameters of your image
+jpeg('filename.jpg',  # file name and path
+     width = 480,     # width in units
+     height = 480,    # height in units
+     units = 'px',    # units can be pixels, inches, cm, or mm
+     quality = 0.9,   # quality of compresson as percentage
+)
+
+# plot the visualization
+plot(x,y)
+
+# lastly, turn off the jpg device
+```
+
+all use the same syntax, just change the 'jpeg' to 'png' or 'bmp'. 

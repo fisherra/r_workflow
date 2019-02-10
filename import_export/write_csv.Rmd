@@ -3,4 +3,53 @@ title: "Writing Deliminated Files"
 output: html_document
 ---
 
-write_delim()   # Explicitly export .csv and .tsv files
+<br> 
+
+```{r}
+library('readr')
+```
+
+<br>
+
+Why save to a .csv using readr? saves time, memorable syntax, good defualts
+
+<br> 
+
+## Writing Files
+
+<br>
+
+### writing a .csv
+
+```{r, eval = F}
+write_csv(
+  data_name, 
+  'path/to/filename.csv'
+)
+```
+
+<br>
+
+
+### writing a .tsv
+```{r, eval = F}
+write_tsv(
+  data_name,
+  'path/to/filename.tsv'
+)
+```
+
+
+<br>
+
+### appending to an existing .csv
+```{r, eval = F}
+write_csv(
+  your_object,
+  'path/to/existing/filename.csc',
+  append = T
+)
+```
+
+
+

@@ -1,9 +1,0 @@
----
-title: "Saving Visualizations"
-output: html_document
----
-
-ggsave()        # Explicitly save plots (from ggplot2)
-pdf()
-jpeg()
-png()

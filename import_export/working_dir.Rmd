@@ -1,0 +1,26 @@
+---
+title: "working_directory"
+author: "Fisher Ankney"
+date: "2/7/2019"
+output: html_document
+---
+
+
+## Working Directory
+
+Understanding your working directory is useful to find your data. 
+
+<br>
+
+### viewing your working directory
+```{r, eval = F}
+getwd()
+```
+
+<br> 
+
+### setting your working directory
+```{r, eval = F}
+setwd('your/directory/here')
+```
+

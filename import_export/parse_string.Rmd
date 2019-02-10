@@ -1,8 +1,0 @@
----
-title: "Parsing Strings"
-output: html_document
----
-
-
-parse_*()       # Family of parsing functions
-

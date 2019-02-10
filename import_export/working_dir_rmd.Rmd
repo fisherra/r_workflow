@@ -1,0 +1,54 @@
+---
+title: "Working Directory R Markdown"
+output: html_document
+---
+
+<br> 
+
+## Setting Working Directory in .Rmd File
+
+can be tricky. Knitr switches your working directory back after each chunk is run, unless you set the root.dir using knitr options. 
+
+<br> 
+
+### Proving setwd() doesn't work
+```{r}
+# knitr is tricky to setwd()
+getwd()
+setwd('/Users/fisher/Documents/documents/regression/data')
+getwd()
+```
+
+<br> 
+
+The next chunk we try to get the wd
+```{r}
+getwd()
+```
+
+<br> 
+
+
+so we use this instead
+
+## Setting WD in Knitr / Rmd
+```{r, eval = F}
+knitr::opts_knit$set(root.dir = normalizePath("/Users/fisher/")) 
+knitr::opts_knit$get("root.dir")  
+```
+
+<br> 
+
+
+```{r}
+# knitr is tricky to setwd()
+getwd()
+setwd('/Users/fisher/Documents/documents/regression/data')
+getwd()
+```
+
+
+knitr::opts_knit$set(root.dir = normalizePath(".."))  
+htwt.dat <- read.csv("heightweight.csv", header = T)
+```
+
