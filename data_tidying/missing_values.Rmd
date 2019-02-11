@@ -1,0 +1,9 @@
+---
+title: 'Missing Values'
+output: html_document
+---
+
+What to do with NA's?
+
+basically copy and paste tidy post? 
+perhaps a bit of parsing, idk

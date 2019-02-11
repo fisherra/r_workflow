@@ -1,0 +1,13 @@
+---
+title: 'Tibbles'
+output: html_document
+---
+
+```{r}
+library('tibble') # or
+library('tidyverse')
+```
+
+why are tibbles better?
+
+basically copy and paste r4ds tibble post

@@ -1,0 +1,7 @@
+---
+title: 'Gather and Spread'
+output: html_document
+---
+
+baiscally copy and paste tidy post
+
