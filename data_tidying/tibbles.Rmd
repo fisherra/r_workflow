@@ -1,15 +1,15 @@
 ---
-title: 'Tibbles'
+title: 'Why Use Tibbles'
 output: html_document
 ---
 
+<br>
+
 ```{r, message=F}
-library('tidyverse') # includes tibble
+library('tidyverse') 
 ```
 
 <br> 
-
-### Why use Tibbles
 
 It's simple to create a tibble - instead of using base R's `data.frame()` function, use tibble's `tibble()` function. If you're looking to coerce an object into a tibble, use `as_tibble()` instead of `as.data.frame()`. The function `as_tibble()` was created with speed in mind, it is much quicker than the base R counterpart.
 

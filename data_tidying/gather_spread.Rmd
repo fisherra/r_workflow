@@ -3,7 +3,11 @@ title: 'Gather and Spread'
 output: html_document
 ---
 
-### `gather()`
+```{r, message = F}
+library('tidyverse')
+```
+
+### gather
 
 Often, a dataset has column names that are not the names of variables, but the values of variables. take `table4a` for example. 
 
@@ -22,7 +26,7 @@ table4a %>%
 
 <br  />
 
-### `spread()`
+### spread
 
 
 When an observation is scattered across multiple rows, variable names appear repeatedly as elements in a dataframe. In `table2` a single observation is a country in each year, but each observation is spread across two rows. 

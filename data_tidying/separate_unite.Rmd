@@ -3,7 +3,13 @@ title: 'Separate and Unite'
 output: html_document
 ---
 
-### `separate()`
+<br>
+
+```{r}
+library('tidyverse')
+```
+
+### separate
 
 Sometimes a column contains more than variable worth of information in each element. In `table3` this is exemplified by the `rate` column. 
 
@@ -22,7 +28,7 @@ table3 %>%
 
 <br  />
 
-### `unite()`
+### unite
 
 When a single variable is spread between multiple columns, it's time to unite them. In `table5` the century and year variables should be united to create a single variable, the full year. 
 

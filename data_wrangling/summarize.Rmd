@@ -1,0 +1,26 @@
+---
+title: 'dplyr summarize'
+output: html_document
+---
+
+<br>
+
+```{r, message = F}
+library('tidyverse')
+library('nycflights13')
+```
+
+<br>
+
+#### Summarize
+
+
+`summarize()` is perhaps the most complicated function in dplyr. Often used in conjunction with `group_by()`, `summarize()` collapses many values into a single summary. In the above example. `summarize()` finds the mean departure delay of all 336,776 observations in the flights dataset. As a result, the single value 12.64 (minutes) summarizes the mean departure delay. 
+
+```{r}
+summarize(flights, delay = mean(dep_delay, na.rm = TRUE))
+```
+
+<br  />
+
+

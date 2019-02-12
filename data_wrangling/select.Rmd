@@ -1,0 +1,24 @@
+---
+title: 'dplyr select'
+output: html_document
+---
+
+<br>
+
+```{r, message = F}
+library('tidyverse')
+library('nycflights13')
+```
+
+<br>
+
+
+### Select
+
+In a data frame with numerous variables it's easy become overwhelmed and broad with analysis. `select()` reduces the number of variables in a data frame, only keeping variables that the user inputs as arguments. In this example, flights are reduced from 19 variables to the variables year, month and day. 
+
+```{r}
+select(flights, year:day)
+```
+
+

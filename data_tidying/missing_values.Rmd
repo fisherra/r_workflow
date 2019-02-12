@@ -3,7 +3,15 @@ title: 'Missing Values'
 output: html_document
 ---
 
-### `fill()`
+<br> 
+
+```{r, message = F}
+library('tidyverse')
+```
+
+<br> 
+
+### fill
 
 When dealing with missing data, it can be the case that you know that missing values are supposed to be carried on from the last observation. Something along the line of "ditto" quotations on a sign-up sheet. In the tibble treatment, we see just that. 
 
@@ -32,7 +40,7 @@ treatment %>%
 
 <br>
 
-### `complete()`
+### complete
 
 When dealing with missing data it's often important to turn implicitly missing values to explicit missing values. There are two missing values from the stocks tibble, 4th quarter 2015 and 1st quarter 2016. 
 

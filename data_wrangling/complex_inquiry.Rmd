@@ -1,0 +1,29 @@
+---
+title: "dplyr complex inquiry"
+output: html_document
+---
+
+<br> 
+
+```{r, message=FALSE}
+library('tidyverse')      # includes dplyr
+library('nycflights13')   # example dataset 
+```
+
+<br>
+
+### Complex Inquiries
+
+```{r}
+denver_xmas_delay <- flights %>%                          # create new dataframe, denver_xmas_delay, then
+  select(-tailnum) %>%                                    # select all variables except for tailnum 
+  filter(month == 12 & day == 25 & dest == "DEN") %>%     # filter only flights with destination Denver on Christmas
+  group_by(carrier) %>%                                   # now group fights by carrier company for summary analysis
+  summarize(num_flights = n(),                            # create num_flights variable, equal to the count sorted by carrier
+            avg_delay = mean(dep_delay)) %>%              # create avg_delay variable, equal to mean departure delay by carrier
+  arrange(desc(avg_delay))                                # arrange these carriers by the new avg_delay variable
+denver_xmas_delay                                         # print results
+```
+
+<br>
+

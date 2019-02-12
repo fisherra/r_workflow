@@ -1,0 +1,70 @@
+---
+title: "Data Wrangling Functions"
+output: html_document
+---
+
+<br>
+
+```{r, message = F}
+library('tidyverse')
+```
+
+<br>
+
+### Data Wrangling Functions 
+
+<br>
+
+#### `transmute()`  
+Technically a data manipulation verb, transmute adds a new variable to the data structure, just like mutate. The difference between transmute and mutate is that mutate preserves the pre-existing variables while transmute drops them. Usage arguments are the same as mutate. 
+
+#### `ungroup()` 
+After using the function `group_by()` data operations are performed on the groups defined by this functions output. Ungroup will undo the effects of `group_by()`, allowing for verbs like `summarize()` to once again be conducted on the entire dataset. 
+
+
+#### `desc()`
+When using the data wrangling verb `arrange()`, dplyr automatically sorts a datasets observations alphanumerically. If, for instance, you wanted to arrange a set of values from highest to lowest, you must use the `desc()` function inside arrange. I exemplify `desc()` in the `arrange()` example code above. 
+
+#### `tally()`   
+`tally()` is short hand for the function `summarize()`. The function simply calls the `n()` function, which defines the number of entries in your `x` argument. If you're calling `tally()` multiple times for a single dataset, it will call `sum(n)`, and create a cumulative tally. `tally()` will takes an `x` argument and optionally a `wt` and `sort` argument. `x` is the table to count, `wt` allows for a weighted tally through the defined variable `wt`, and `sort` will sort the output in descending order of n if left as TRUE. 
+
+#### `count()`
+A very similar function to `tally()`, `count()` calls `group_by()` before performing the tally, then calls `ungroup()` once it's complete. 
+
+#### `n_distinct()` 
+number of unique values in vector x 
+
+#### `starts_with()` 
+Useful with the `select()` data wrangling verb, `starts_with()` allows you to select data entries that start with a defined prefix. The first argument is a string that you want to match within the dataset; the second argument is `ignore.case` which defaults to TRUE. 
+
+#### `ends_with()`    
+Similar to `starts_with()`, this verb allows you to select entries from a dataset that end with a defined string. 
+
+#### `contains()`     
+Allows you to `select()` data entries that contain a defined literal string anywhere within them. 
+
+#### `matches()`     
+Allows you to `select()` data entries that match a regular expression anywhere within them. 
+
+#### `num_range()`   
+Allows you to `select()` data entries that contain a defined range of numbers given as the first argument in `num_range()`. 
+
+#### `bind_rows()`    
+An efficient implementation of base R's `rbind()` function, `bind_rows()` takes data frames as arguments and combines the rows, or observations, according to the columns they have in common. 
+
+#### `bind_cols()`     
+`bind_rows()` counterpart, `bind_cols()` also takes data frames as arguments and combines them column-wise according to their common observations. 
+
+#### `rename()`        
+`rename()` does exactly what it's name suggest, taking a dataset as its first argument, and an expression defining the new names based on the old names as its second argument. for example, to rename multiple columns you would write a statement like `rename(data, c(new_name_1, new_name_2) = c(old_name_1, old_name_2))`. 
+
+#### `first()`
+A simple wrapper that will select and return the value that occupies the first slot in a data structure. The first and only argument defines the data structure. 
+
+#### `last()`
+A simple wrapper that will select and return the value that occupies the last slot in a data structure. The first and only argument defines the data structure. 
+
+#### `nth()`
+A simple wrapper than will select and return the value that occupies the nth slot in a data structure. The first argument defines the data structure and the second argument defines the nth slot. 
+
+<br> 

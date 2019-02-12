@@ -1,0 +1,26 @@
+---
+title: 'dplyr mutate'
+output: html_document
+---
+
+<br>
+
+```{r, message = F}
+library('tidyverse')
+library('nycflights13')
+```
+
+<br>
+
+#### Mutate
+
+`mutate()` allows users to alter current variables and create new ones through various vectorized functions. In the above example the variable speed is created and is equal to distance divided by air time multiplied by 60. The pipe function %>%, is used to move the `mutate()` output to `select()`. The new variable, speed, is output by the `select()` function, along with each flight's tail number, air time, and travel distance.
+
+
+```{r}
+mutate(flights, speed = distance / air_time * 60) %>%
+  select(tailnum, distance, air_time, speed)
+```
+
+<br  />
+

@@ -1,0 +1,27 @@
+---
+title: 'dplyr filter'
+output: html_document
+---
+
+<br> 
+
+```{r, message = F}
+library('tidyverse')
+library('nycflights13')
+```
+
+<br>
+
+
+#### Filter
+
+<br> 
+
+`filter()` is a simple function that finds, or 'filters' observations that match true to a declared condition. In this example `filter()` first's argument is the flights dataset, the following arguments declare the conditions to be met. Retain observations (rows) with the months variable equal to 12, and the day variable equal to 25. The result is a data frame with 719 flights that departed New York City on Christmas Day, 2013. 
+
+<br>
+
+```{r}
+filter(flights, month == 12 & day == 25)
+```
+
