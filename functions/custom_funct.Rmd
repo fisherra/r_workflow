@@ -1,0 +1,22 @@
+---
+title: "custom functions"
+output: html_document
+---
+
+<br>
+
+
+```{r}
+my_function <- function(arguement_1, arguement_2 = 'default', ...) {
+  results = paste(arguement_1, arguement_2)
+  print(results)
+}
+```
+
+<br> 
+
+```{r}
+my_function('yes', 'no')
+my_function('yes')
+```
+

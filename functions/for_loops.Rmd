@@ -1,0 +1,58 @@
+---
+title: "for loops"
+output: html_document
+---
+
+<br> 
+
+### basic for loop
+
+```{r}
+i <- 1 
+
+for (i in 1:10) {
+  print(i)
+}
+```
+
+
+<br>
+
+### for loops for simple assignment
+
+
+```{r}
+i <- 1
+ex <- vector('double', length = 10)
+
+for (i in seq_along(ex)) {
+  ex[i] = i
+  i = i + 1
+}
+
+ex
+```
+
+<br>
+
+#### for loops for complex assignment
+
+you have a counter, a data vector, and an 'save' vector. for every element in the data vector, perform some function and save that output to your save vector. report results of save vector. 
+```{r}
+i <- 1
+data <- 1:10
+save <- vector('double', length = 10)
+
+for (i in seq_along(data)) {
+  save[i] = data[i] + mean(data)
+  i = i + 1
+}
+
+save
+```
+
+<br> 
+
+Check out the purrr post for more efficient ways to do this, in some cases. Also be aware this is not vectorized, and thus not ideal in R. 
+
+<br> 

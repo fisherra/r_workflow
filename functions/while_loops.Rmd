@@ -1,0 +1,41 @@
+---
+title: "while loops"
+output: html_document
+---
+
+<br>
+
+while loops are a specialized for loop.
+
+
+<br> 
+
+### basic for loop
+
+```{r}
+i <- 1 
+
+while (i <= 10) {
+  print(i)
+  i = i + 1
+}
+```
+
+
+<br>
+
+### for loops for assignment
+
+```{r}
+i <- 1
+ex <- vector('double', length = 10)
+
+while (i <= length(ex)) {
+  ex[i] = i
+  i = i + 1
+}
+
+ex
+```
+
+<br>
