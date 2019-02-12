@@ -3,11 +3,98 @@ title: 'Tibbles'
 output: html_document
 ---
 
-```{r}
-library('tibble') # or
-library('tidyverse')
+```{r, message=F}
+library('tidyverse') # includes tibble
 ```
 
-why are tibbles better?
+<br> 
 
-basically copy and paste r4ds tibble post
+### Why use Tibbles
+
+It's simple to create a tibble - instead of using base R's `data.frame()` function, use tibble's `tibble()` function. If you're looking to coerce an object into a tibble, use `as_tibble()` instead of `as.data.frame()`. The function `as_tibble()` was created with speed in mind, it is much quicker than the base R counterpart.
+
+Using tibbles instead of data frames is an easy habit to form, and the benefits of using tibbles make it time well spent. Tibbles never change input types like data frames do, they also never adjust the names of variables. Tibbles evaluate arguments lazily and sequentially, resulting in more user-friendly structure creation and manipulation. They also don't use `rownames()` and store variables as special attributes; tibbles are a standardized data frame that consistently simplify the user experience. 
+
+In addition to the previously mentioned benefits of tibbles, here are perhaps the three most important changes made from the outdated data frame. 
+
+<br> 
+
+#### Printing
+
+Objects as a `data.frame` will print every column in the data frame. This behavior is rarely useful, so I've used the `head()` function to limit the output. 
+
+```{r}
+head(iris, n = 10)
+```
+
+<br> 
+
+When an object is stored as a tibble, calling it will automatically limit the output to ten rows. 
+
+```{r}
+iris.tib <- as_tibble(iris)
+iris.tib
+```
+ 
+<br> 
+
+You'll also notice that tibbles inform you on the data structures and dimensions, data frames do not. If you want to view the entire dataset, the `View()` function in RStudio is a great option. 
+
+<br> 
+
+#### Subsetting
+
+Tibbles are more strict on subsetting; remember that a single bracket `[` will produce another tibble (multiple vectors) and a double bracket `[[` will produce a single vector. 
+
+- `[`= Multiple Vectors
+- `[[` = Single Vector
+
+You can also use the `$` to pull single vector of information, but only by its name. 
+
+When using `$` within a tibble, don't expect the partial matching behavior that's found in data frames.  
+
+```{r}
+df <- data.frame(abc = 1)
+df$a
+```
+
+<br> 
+
+```{r}
+df2 <- tibble(abc = 1)
+df2$a
+```
+ 
+<br> 
+
+If you're a fan of the magrittr pipe like I am, you'll need to use the special character `.` to subset the tibble. 
+
+```{r}
+df <- tibble(
+  x = runif(5),
+  y = rnorm(5)
+)
+df %>% .$x
+df %>% .[["x"]]
+```
+
+<br> 
+
+#### Recycling 
+
+My favorite from data frames is the lack of vector recycling in tibbles. Within data.frames, if a vector doesn't fit the structures dimensions it is repeated or "recycled" until it does. 
+```{r}
+data.frame(a = 1:6, b = 1:2)
+```
+
+<br> 
+
+Tibbles don't recycle vectors, unless they're of length 1. 
+
+```{r, error=T}
+tibble(a = 1:6, b = 1:2)
+```
+
+<br> 
+
+
